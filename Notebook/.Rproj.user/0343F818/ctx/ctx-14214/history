@@ -1,0 +1,512 @@
+#Summary of reggresion model
+summary(regression)
+#Summary statistics of the selected dataset
+summary(dataset)
+#installing the requried packages
+install.packages("BSDA")
+#importing the libraries
+library(BSDA)
+library("dplyr")
+library(dplyr)
+#filtering the data of foreign countries
+foreign=car_data%>%dplyr::filter(foreign==1)
+foreign1=car_data%>%dplyr::filter(foreign==1)%>%dplyr::summarise(mean=mean(weight),obs=n(), stad=var(weight)^0.5)
+nonforeign=car_data%>%dplyr::filter(foreign==0)
+nonforeign1=car_data%>%dplyr::filter(foreign==0)%>%dplyr::summarise(mean=mean(weight),obs=n(), stad=var(weight)^0.5)
+#printing the z-test
+z.test(x=foreign$weight, y=nonforeign$weight, mu=0, sigma.x=foreign1$stad, sigma.y=nonforeign1$stad,alternative = "less")
+plot(regression)
+#linear regression model
+fit=unlist(regression$fitted.values)
+regression$residuals
+#mean
+m=mean(regression$residuals)
+sd=var(regression$residuals)^0.5
+regression$sdr=((regression$residuals-m)/sd)
+plot(regression$sdr,unlist(regression$fitted.values))
+abline(lm(regression$sdr ~ unlist(regression$fitted.values)))
+#plotting for country Asia
+plot(regression, 3)
+#plotting for country Europe
+plot(regression, 2)
+dataset<- CarData[c(-9)]
+View(dataset)
+#regression=lm(weight~.,data=dataset)
+regression=lm(weight~mpg+ cylinders+ displacement+hp+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+#Summary statistics of the selected dataset
+summary(dataset)
+sd(dataset)
+data2 <- dataset$mpg
+sd(dataset)
+data2 <- dataset$mpg
+sd(data2)
+#data2 <- dataset$mpg
+data2 <- dataset %>%
+select(mpg, cylinders, displacement, hp, acceleration, modelyr, origin, foreign)
+sd(data2)
+#data2 <- dataset$mpg
+data2 <- dataset %>%
+select(mpg, cylinders, modelyr, origin, foreign)
+sd(data2)
+#data2 <- dataset$mpg
+data2 <- dataset %>%
+select(cylinders, modelyr, origin, foreign)
+sd(data2)
+#verify that x_num is numeric
+class(dataset)
+#convert list to numeric
+x_num <- as.numeric(unlist(dataset))
+#convert list to numeric
+x_num <- as.numeric(unlist(dataset))
+class(x_num)
+#data2 <- dataset$mpg
+data2 <- x_num %>%
+select(cylinders, modelyr, origin, foreign)
+sd(data2)
+#data2 <- dataset$mpg
+data2 <- x_num %>%
+select(cylinders)
+sd(data2)
+#verify that x_num is numeric
+class(dataset)
+#data2 <- dataset$mpg
+data2 <- dataset%>%
+select(cylinders)
+sd(data2)
+data2 <- dataset$cylinders
+sd(data2)
+data2 <- dataset%>%
+select(cylinders)
+data2 <- dataset$cylinders
+sd(data2)
+data2 <- dataset%>%
+select(cylinders)
+#data2 <- dataset$cylinders
+sd(data2)
+apply(dataset,2,sd)
+#Loading the dataset
+CarData<-read.csv("/Users/mohammadshaik/Desktop/UMKC/Econometrics of Data Science/Hw-2/hw2_car_data.csv")
+sample(CarData, 5)
+#Viewing the data
+View(CarData)
+#Dimensions of the data
+dim(CarData)
+#Structure of the data
+str(CarData)
+#summary from the dataset
+summary(CarData)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+# Check Missing Values
+colSums(is.na(CarData))
+# Data Cleaning
+CarData[duplicated(CarData), ]
+dataset<- CarData[c(-9)]
+View(dataset)
+regression=lm(mpg~.,data=dataset)
+#regression=lm(mpg~+ cylinders+ displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+#Summary statistics of the selected dataset
+summary(dataset)
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+install.packages("GGally")
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+install.packages("GGally")
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+library(ggplot2)
+library(dplyr)
+library(Hmisc)
+library(cowplot)
+library(WVPlots)
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+install.packages("GGally")
+#Loading the dataset
+CarData<-read.csv("/Users/mohammadshaik/Desktop/UMKC/Econometrics of Data Science/Hw-2/hw2_car_data.csv")
+sample(CarData, 5)
+#Viewing the data
+View(CarData)
+#Dimensions of the data
+dim(CarData)
+#Structure of the data
+str(CarData)
+#summary from the dataset
+summary(CarData)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+# Check Missing Values
+colSums(is.na(CarData))
+# Data Cleaning
+CarData[duplicated(CarData), ]
+#Loading the dataset
+CarData<-read.csv("/Users/mohammadshaik/Desktop/UMKC/Econometrics of Data Science/Hw-2/hw2_car_data.csv")
+sample(CarData, 5)
+#Viewing the data
+View(CarData)
+#Dimensions of the data
+dim(CarData)
+#Structure of the data
+str(CarData)
+#summary from the dataset
+summary(CarData)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+library(dplyr)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+# Check Missing Values
+colSums(is.na(CarData))
+dataset<- CarData[c(-9)]
+View(dataset)
+regression=lm(mpg~.,data=dataset)
+#regression=lm(mpg~+ cylinders+ displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+library(Hmisc)
+library(cowplot)
+library(WVPlots)
+#Summary statistics of the selected dataset
+summary(dataset)
+#data2 <- dataset$cylinders
+#sd(data2)
+apply(dataset,2,sd)
+x <- ggplot(CarData, aes(cylinders, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(displacement, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(hp, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(weight, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and cylinders / displacement / hp / weight", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(acceleration, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modelyr, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(origin, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(foreign, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and acceleration/modelyr/origin/foreign", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(modyr80, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modyr81, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(modyr82, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and modyr80/modyr81/modyr82", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+p <- plot_grid(x, y, z)
+title <- ggdraw() + draw_label("1. Correlation between mpg and modyr80/modyr81/modyr82", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+regression=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+model12=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(model12)
+model13=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model13)
+model14=lm(mpg~ displacement+weight+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model14)
+#Summary statistics of the selected dataset
+summary(dataset)
+#data2 <- dataset$cylinders
+#sd(data2)
+apply(dataset,2,sd)
+p <- plot_grid(x, y, z)
+title <- ggdraw() + draw_label("2. Correlation between mpg and modyr80/modyr81/modyr82", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("2. Correlation between mpg and acceleration/modelyr/origin/foreign", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+library(Hmisc)
+library(cowplot)
+library(WVPlots)
+#Loading the dataset
+CarData<-read.csv("/Users/mohammadshaik/Desktop/UMKC/Econometrics of Data Science/Hw-2/hw2_car_data.csv")
+sample(CarData, 5)
+#Viewing the data
+View(CarData)
+#Dimensions of the data
+dim(CarData)
+#Structure of the data
+str(CarData)
+#summary from the dataset
+summary(CarData)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+# Check Missing Values
+colSums(is.na(CarData))
+dataset<- CarData[c(-9)]
+View(dataset)
+regression=lm(mpg~.,data=dataset)
+#regression=lm(mpg~+ cylinders+ displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+#Summary statistics of the selected dataset
+summary(dataset)
+#data2 <- dataset$cylinders
+#sd(data2)
+apply(dataset,2,sd)
+x <- ggplot(CarData, aes(cylinders, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(displacement, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(hp, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(weight, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and cylinders / displacement / hp / weight", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(acceleration, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modelyr, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(origin, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(foreign, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("2. Correlation between mpg and acceleration/modelyr/origin/foreign", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(modyr80, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modyr81, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(modyr82, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z)
+title <- ggdraw() + draw_label("3. Correlation between mpg and modyr80/modyr81/modyr82", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+model12=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(model12)
+model13=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model13)
+model14=lm(mpg~ displacement+weight+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model14)
+#Summary statistics of the selected dataset
+summary(dataset)
+FinalData <- dataset %>% select(mpg,cylinders,displacement,hp,weight,acceleration, modelyr,origin,foreign,modyr80,modyr81,modyr82)
+#Summary statistics of the selected dataset
+summary(FinalData)
+#data2 <- dataset$cylinders
+#sd(data2)
+apply(FinalData,2,sd)
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+library(Hmisc)
+library(cowplot)
+library(WVPlots)
+#Loading the dataset
+CarData<-read.csv("/Users/mohammadshaik/Desktop/UMKC/Econometrics of Data Science/Hw-2/hw2_car_data.csv")
+sample(CarData, 5)
+#Viewing the data
+View(CarData)
+#Dimensions of the data
+dim(CarData)
+#Structure of the data
+str(CarData)
+#summary from the dataset
+summary(CarData)
+# Data Cleaning
+CarData[duplicated(CarData), ]
+# Remove Duplicates
+CarData <- CarData %>% distinct()
+# Check Missing Values
+colSums(is.na(CarData))
+dataset<- CarData[c(-9)]
+View(dataset)
+regression=lm(mpg~.,data=dataset)
+#regression=lm(mpg~+ cylinders+ displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(regression)
+# Correlation Plot
+install.packages('GGally')
+library(GGally)
+ggcorr(CarData %>% mutate_if(is.factor, as.numeric), label = TRUE)
+install.packages("GGally")
+#Summary statistics of the selected dataset
+summary(dataset)
+#data2 <- dataset$cylinders
+#sd(data2)
+apply(dataset,2,sd)
+x <- ggplot(CarData, aes(cylinders, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(displacement, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(hp, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(weight, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and cylinders / displacement / hp / weight", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(acceleration, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modelyr, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+library(Hmisc)
+library(cowplot)
+library(WVPlots)
+x <- ggplot(CarData, aes(cylinders, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(displacement, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(hp, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(weight, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("1. Correlation between mpg and cylinders / displacement / hp / weight", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(acceleration, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modelyr, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(origin, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+w <- ggplot(CarData, aes(foreign, mpg)) +
+geom_jitter(color = "yellow", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z, w)
+title <- ggdraw() + draw_label("2. Correlation between mpg and acceleration/modelyr/origin/foreign", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+x <- ggplot(CarData, aes(modyr80, mpg)) +
+geom_jitter(color = "blue", alpha = 0.5) +
+theme_light()
+y <- ggplot(CarData, aes(modyr81, mpg)) +
+geom_jitter(color = "green", alpha = 0.5) +
+theme_light()
+z <- ggplot(CarData, aes(modyr82, mpg)) +
+geom_jitter(color = "red", alpha = 0.5) +
+theme_light()
+p <- plot_grid(x, y, z)
+title <- ggdraw() + draw_label("3. Correlation between mpg and modyr80/modyr81/modyr82", fontface='bold')
+plot_grid(title, p, ncol=1, rel_heights=c(0.1, 1))
+model12=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign, data=dataset)
+#Summary of reggresion model
+summary(model12)
+model13=lm(mpg~ cylinders+displacement+hp+weight+acceleration+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model13)
+model14=lm(mpg~ displacement+weight+ modelyr+origin+foreign+modyr80+modyr81+modyr82, data=dataset)
+#Summary of reggresion model
+summary(model14)
+model15=lm(mpg~ ., data=dataset)
+#Summary of reggresion model
+summary(model15)
+#installing the requried packages
+install.packages("BSDA")
+#importing the libraries
+library(BSDA)
+library("dplyr")
+library(dplyr)
+#filtering the data of foreign countries
+foreign=CarData%>%dplyr::filter(foreign==1)
+foreign1=CarData%>%dplyr::filter(foreign==1)%>%dplyr::summarise(mean=mean(mpg),obs=n(), stad=var(weight)^0.5)
+nonforeign=CarData%>%dplyr::filter(foreign==0)
+nonforeign1=CarData%>%dplyr::filter(foreign==0)%>%dplyr::summarise(mean=mean(mpg),obs=n(), stad=var(mpg)^0.5)
+#printing the z-test
+z.test(x=foreign$mpg, y=nonforeign$mpg, mu=0, sigma.x=foreign1$stad, sigma.y=nonforeign1$stad,alternative = "less")
+plot(regression)
+#plotting for country Asia
+plot(regression, 3)
+#plotting for country Europe
+plot(regression, 2)
+install.packages('car')
+install.packages('alr4')
+install.packages('faraway')
+# Scatterplot matrix
+library(car)
+library(alr4)
+library(faraway)
+scatterplotMatrix(~ log(mpg) + foreign+ log(hp) + log(weight)+log(modelyr), data = mpg.data1)
